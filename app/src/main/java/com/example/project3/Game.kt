@@ -8,6 +8,7 @@ class Game {
 
     private var bestLevel : Int = 0
     private var currentLevel : Int = 0
+    //commnet
     private var targetSeq : ArrayList<String> = arrayListOf<String>()
     private var currentSeq : ArrayList<String> = arrayListOf<String>()
 
