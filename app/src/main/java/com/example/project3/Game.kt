@@ -8,7 +8,6 @@ class Game {
 
     private var bestLevel : Int = 0
     private var currentLevel : Int = 0
-    //commnet
     private var targetSeq : ArrayList<String> = arrayListOf<String>()
     private var currentSeq : ArrayList<String> = arrayListOf<String>()
 
@@ -61,6 +60,15 @@ class Game {
         bestLevel = 0
         targetSeq = arrayListOf<String>()
         currentSeq = arrayListOf<String>()
+        addNewColor()
+    }
+
+    fun lostGame () {
+        currentSeq = arrayListOf<String>()
+        targetSeq = arrayListOf<String>()
+        for (i in 0 .. currentLevel) {
+            addNewColor()
+        }
     }
 
     fun addToSequence(color : String) : String {
@@ -73,16 +81,14 @@ class Game {
                 return "complete"
             }
             else {
-                currentSeq = arrayListOf<String>()
-                currentLevel = 0
+                lostGame()
                 return "wrong"
             }
         }
 
         for (i in currentSeq.indices){
             if (currentSeq[i] != targetSeq[i]){
-                currentSeq = arrayListOf<String>()
-                currentLevel = 0
+                lostGame ()
                 return "wrong"
             }
         }

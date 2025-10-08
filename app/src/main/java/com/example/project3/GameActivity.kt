@@ -34,7 +34,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun startGame () {
-        MainActivity.game.addNewColor()
+        MainActivity.game.lostGame()
         val message = MainActivity.game.getTargetSeq().joinToString(", ")
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
@@ -43,7 +43,8 @@ class GameActivity : AppCompatActivity() {
     fun resetHandler () {
         MainActivity.game.resetGame()
         MainActivity.game.setPreferences( this )
-        goBack()
+        startGame()
+        //goBack()
     }
 
     fun checkInput (color : String) {
